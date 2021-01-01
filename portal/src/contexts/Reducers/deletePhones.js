@@ -19,6 +19,7 @@ const deletePhones = (state, payload) => {
     if (!PHONEID_MAP[phone.id]) notDeletedPhones.push(phone);
   }
   newState.cachedPages[page] = notDeletedPhones;
+  newState.isLoading = false;
   return newState;
 };
 

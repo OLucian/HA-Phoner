@@ -13,6 +13,10 @@ const useStyles = makeStyles(() => ({
       color: '#ffffff90',
     },
   },
+  helper: {
+    fontSize: '0.65rem !important',
+    color: '#ffffff60 !important',
+  },
   input: {
     color: '#ffffff',
   },
@@ -72,7 +76,6 @@ export default function EnhancedTableCell(props) {
             className: classes.label,
           }}
           InputProps={{
-            shrink: true,
             className: classes.input,
           }}
           id={`${id}-${cell}`}

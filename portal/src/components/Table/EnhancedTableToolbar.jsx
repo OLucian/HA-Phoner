@@ -22,10 +22,10 @@ const useToolbarStyles = makeStyles((theme) => ({
     borderRadius: '8px 8px 0 0',
   },
   highlight: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.secondary.secondary,
   },
   title: {
-    color: '#222',
+    color: '#222222',
   },
 }));
 

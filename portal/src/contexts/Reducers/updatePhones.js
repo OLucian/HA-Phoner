@@ -10,6 +10,7 @@ const updatePhones = (state, payload) => {
       newState.cachedPages[page][index].updated_at = new Date();
     }
   }
+  newState.isLoading = false;
   return newState;
 };
 

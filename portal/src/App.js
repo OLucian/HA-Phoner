@@ -22,10 +22,19 @@ const outerTheme = createMuiTheme({
         padding: '8px',
       },
     },
-  },
-  MuiFormHelperText: {
-    root: {
-      fontSize: '6px',
+    MuiFormHelperText: {
+      root: {
+        fontSize: '0.65rem',
+        color: '#ffffff60',
+      },
+    },
+    MuiTableSortLabel: {
+      root: {
+        color: '#ffffff',
+        '&$active': {
+          color: '#ffffff90',
+        },
+      },
     },
   },
   palette: {

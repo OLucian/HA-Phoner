@@ -110,6 +110,8 @@ const localeFormat = {
   second: '2-digit',
 };
 
+const rowHeight = 40;
+
 export default function MUITableBody(props) {
   const classes = useStyles();
   const {
@@ -189,7 +191,7 @@ export default function MUITableBody(props) {
       <TableBody>
         <TableRow className={classes.tableRowNoHover}>
           <TableCell colSpan="8">
-            <LoaderWrapper style={{ height: `${100 * rowsPerPage}px`, width: '100%' }}>
+            <LoaderWrapper style={{ height: `${rowHeight * 10}px`, width: '100%' }}>
               <MoonLoader size={30} color="#ffffff80" loading={true} />
             </LoaderWrapper>
           </TableCell>
@@ -203,7 +205,7 @@ export default function MUITableBody(props) {
       <TableBody>
         <TableRow className={classes.tableRowNoHover}>
           <TableCell colSpan="8">
-            <LoaderWrapper style={{ height: `${100 * rowsPerPage}px`, width: '100%' }}>
+            <LoaderWrapper style={{ height: `${rowHeight * 10}px`, width: '100%' }}>
               <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
                 No phones found. Add new phones.
               </Typography>
@@ -301,7 +303,7 @@ export default function MUITableBody(props) {
         );
       })}
       {emptyRows > 0 && (
-        <TableRow style={{ height: 53 * emptyRows }}>
+        <TableRow style={{ height: rowHeight * emptyRows }}>
           <TableCell colSpan={6} />
         </TableRow>
       )}
