@@ -10,15 +10,12 @@ import { validateNewPhone } from '../../utils/validateNewPhone';
 import { serverURL } from '../../config';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: 200,
-    },
-    '& .MuiInputBase-input': {
-      color: '#222 !important',
-    },
-    color: '#222 !important',
+  textField: {
+    margin: '15px',
+    color: '#222222',
+  },
+  input: {
+    color: '#222222',
   },
 }));
 
@@ -101,14 +98,15 @@ export default function ModalAddNewPhone(props) {
         >
           NEW PHONE
         </Typography>
-        <div style={{ display: 'flex', width: '1000px' }}>
+        <div style={{ display: 'flex', width: '1000px', alignItems: 'center' }}>
           <TextField
+            className={classes.textField}
             required
             id="id-type"
             label="Phone Type"
             InputLabelProps={{
               shrink: true,
-              className: classes.root,
+              className: classes.input,
             }}
             helperText="* 3 to 128 alpha numeric characters"
             style={{ flex: 2 }}
@@ -122,10 +120,10 @@ export default function ModalAddNewPhone(props) {
             label="Phone Serial"
             InputLabelProps={{
               shrink: true,
-              className: classes.root,
+              className: classes.input,
             }}
             helperText="* 3 to 128 alpha numeric characters"
-            style={{ flex: 2 }}
+            style={{ flex: 2, marginLeft: '20px', marginRight: '20px' }}
             onChange={handleSerial}
             error={serial.error}
             value={serial.value}
@@ -136,10 +134,10 @@ export default function ModalAddNewPhone(props) {
             label="Phone Color"
             InputLabelProps={{
               shrink: true,
-              className: classes.root,
+              className: classes.input,
             }}
             helperText="* 3 to 128 alpha characters"
-            style={{ flex: 1 }}
+            style={{ flex: 1, marginLeft: '20px', marginRight: '20px' }}
             onChange={handleColor}
             error={color.error}
             value={color.value}

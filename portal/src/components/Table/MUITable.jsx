@@ -12,6 +12,7 @@ import ModalAddNewPhone from '../Modals/ModalAddNewPhone';
 import MUITableBody from './MUITableBody';
 import { validateNewPhone } from '../../utils/validateNewPhone';
 import { serverURL } from '../../config';
+import _ from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -141,11 +142,17 @@ function MUITable() {
   const cancelEdit = () => {
     setEdited({});
     setSelected([]);
+    setEditErrors({});
     editData = {};
     editDataIndexMap = {};
   };
 
   const handleEdit = (id, property, value, index) => {
+    if (editErrors && editErrors[id] && editErrors[id][property]) {
+      const errors = _.cloneDeep(editErrors);
+      errors[id][property] = false;
+      setEditErrors(errors);
+    }
     if (!editData[id])
       editData[id] = {
         type: state.cachedPages[page][index].type,
@@ -197,6 +204,7 @@ function MUITable() {
 
     setEdited({});
     setSelected([]);
+    setEditErrors({});
   };
 
   const deleteSelected = async () => {

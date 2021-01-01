@@ -7,7 +7,18 @@ const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
   },
+  label: {
+    color: '#ffffff60',
+    '&.Mui-focused': {
+      color: '#ffffff90',
+    },
+  },
+  input: {
+    color: '#ffffff',
+  },
 }));
+
+// .MuiFilledInput-underline:after
 
 const helperText = {
   type: '* 3 to 128 alpha numeric characters',
@@ -55,6 +66,15 @@ export default function EnhancedTableCell(props) {
     <TableCell align={align} className={className}>
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+            className: classes.label,
+          }}
+          InputProps={{
+            shrink: true,
+            className: classes.input,
+          }}
           id={`${id}-${cell}`}
           label={label}
           variant="filled"

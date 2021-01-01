@@ -108,7 +108,7 @@ const localeFormat = {
   hour: '2-digit',
   minute: '2-digit',
   second: '2-digit',
-}
+};
 
 export default function MUITableBody(props) {
   const classes = useStyles();
@@ -140,9 +140,7 @@ export default function MUITableBody(props) {
         payload: {},
       });
 
-      const response = await axios.get(
-        `${serverURL}/phones/?page=${page}&size=${rowsPerPage}`,
-      );
+      const response = await axios.get(`${serverURL}/phones/?page=${page}&size=${rowsPerPage}`);
 
       const pagination = await axios.get(`${serverURL}/phones/pagination`);
       const [pages] = pagination.data;
@@ -191,7 +189,7 @@ export default function MUITableBody(props) {
       <TableBody>
         <TableRow className={classes.tableRowNoHover}>
           <TableCell colSpan="8">
-            <LoaderWrapper style={{ height: `${48 * rowsPerPage}px`, width: '100%' }}>
+            <LoaderWrapper style={{ height: `${100 * rowsPerPage}px`, width: '100%' }}>
               <MoonLoader size={30} color="#ffffff80" loading={true} />
             </LoaderWrapper>
           </TableCell>
@@ -202,23 +200,18 @@ export default function MUITableBody(props) {
 
   if (rows.length === 0) {
     return (
-    <TableBody>
-      <TableRow className={classes.tableRowNoHover}>
-        <TableCell colSpan="8">
-          <LoaderWrapper style={{ height: `${48 * rowsPerPage}px`, width: '100%' }}>
-          <Typography
-              className={classes.title}
-              variant="h6"
-              id="tableTitle"
-              component="div"
-            >
-              No phones found. Add new phones.
-            </Typography>
-          </LoaderWrapper>
-        </TableCell>
-      </TableRow>
-    </TableBody>
-    )
+      <TableBody>
+        <TableRow className={classes.tableRowNoHover}>
+          <TableCell colSpan="8">
+            <LoaderWrapper style={{ height: `${100 * rowsPerPage}px`, width: '100%' }}>
+              <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+                No phones found. Add new phones.
+              </Typography>
+            </LoaderWrapper>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    );
   }
 
   return (

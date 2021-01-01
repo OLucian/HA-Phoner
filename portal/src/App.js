@@ -17,20 +17,15 @@ const outerTheme = createMuiTheme({
         },
       },
     },
-    MuiInputBase: {
+    MuiTableCell: {
       root: {
-        color: '#fff',
+        padding: '8px',
       },
     },
-    MuiFormLabel: {
-      root: {
-        color: '#ffffff60 !important',
-      },
-    },
-    MuiTableSortLabel: {
-      root: {
-        color: '#ffffff !important',
-      },
+  },
+  MuiFormHelperText: {
+    root: {
+      fontSize: '6px',
     },
   },
   palette: {
