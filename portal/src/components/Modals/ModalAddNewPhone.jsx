@@ -108,6 +108,7 @@ export default function ModalAddNewPhone(props) {
               shrink: true,
               className: classes.input,
             }}
+            FormHelperTextProps={{ className: classes.input }}
             helperText="* 3 to 128 alpha numeric characters"
             style={{ flex: 2 }}
             onChange={handleType}
@@ -122,6 +123,7 @@ export default function ModalAddNewPhone(props) {
               shrink: true,
               className: classes.input,
             }}
+            FormHelperTextProps={{ className: classes.input }}
             helperText="* 3 to 128 alpha numeric characters"
             style={{ flex: 2, marginLeft: '20px', marginRight: '20px' }}
             onChange={handleSerial}
@@ -136,6 +138,7 @@ export default function ModalAddNewPhone(props) {
               shrink: true,
               className: classes.input,
             }}
+            FormHelperTextProps={{ className: classes.input }}
             helperText="* 3 to 128 alpha characters"
             style={{ flex: 1, marginLeft: '20px', marginRight: '20px' }}
             onChange={handleColor}

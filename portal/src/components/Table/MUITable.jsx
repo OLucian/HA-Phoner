@@ -141,7 +141,6 @@ function MUITable() {
 
   const cancelEdit = () => {
     setEdited({});
-    setSelected([]);
     setEditErrors({});
     editData = {};
     editDataIndexMap = {};
@@ -164,20 +163,13 @@ function MUITable() {
   };
 
   const saveEdit = async () => {
-    dispatch({
-      type: 'SET_LOADING',
-      payload: {},
-    });
     const newEditErrors = {};
     const onlyModifiedUpdates = {};
     for (const id in editData) {
       const index = state.cachedPages[page].findIndex((phone) => phone.id === id);
-      console.log('INDEX: ', index, id);
-      console.log('editData: ', editData[id].type, state.cachedPages[page][index].type);
       const differentType = editData[id].type !== state.cachedPages[page][index].type;
       const differentSerial = editData[id].serial !== state.cachedPages[page][index].serial;
       const differentColor = editData[id].color !== state.cachedPages[page][index].color;
-      console.log('bool:', differentType, differentSerial, differentColor);
       const isModifiedUpdate = differentType || differentSerial || differentColor;
       if (!isModifiedUpdate) {
         continue;
@@ -205,7 +197,10 @@ function MUITable() {
     }
 
     try {
-      console.log('onlyModifiedUpdates: ', onlyModifiedUpdates, editData);
+      dispatch({
+        type: 'SET_LOADING',
+        payload: {},
+      });
       await axios.post(`${serverURL}/phones/update`, { editData: onlyModifiedUpdates });
       await dispatch({
         type: 'UPDATE_PHONES',

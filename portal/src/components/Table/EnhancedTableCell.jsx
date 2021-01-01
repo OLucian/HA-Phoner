@@ -51,6 +51,7 @@ export default function EnhancedTableCell(props) {
 
   const classes = useStyles();
   const [value, setValue] = useState(text);
+  const [editChange, setEditChange] = useState(false);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -59,12 +60,19 @@ export default function EnhancedTableCell(props) {
     }
   };
 
-  if (!edit)
+  if (!edit) {
+    if (editChange) setEditChange(false);
     return (
       <TableCell align={align} className={className}>
         {text}
       </TableCell>
     );
+  }
+
+  if (!editChange) {
+    setEditChange(true);
+    setValue(text);
+  }
 
   return (
     <TableCell align={align} className={className}>
